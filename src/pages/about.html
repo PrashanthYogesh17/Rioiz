@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Rioiz — Unified Enterprise Architecture &amp; Mission | Rioiz Worksuite</title>
+  <meta name="description" content="Learn about Rioiz Worksuite's mission to eliminate fragmented enterprise software through a single unified data architecture.">
+  
+  <meta property="og:title" content="About Rioiz — Unified Enterprise Architecture">
+  <meta property="og:description" content="Why multi-vendor SaaS failed and how Rioiz rebuilds operational coherence.">
+  
+  <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+  <link rel="stylesheet" href="/src/assets/css/main.css">
+  <style>
+    html, body {
+      background-color: #060810 !important;
+      color: #e2e8f0;
+    }
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="bg-[#060810] text-slate-200 antialiased selection:bg-teal-500 selection:text-slate-950 font-sans min-h-screen flex flex-col justify-between">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-teal-600 text-white rounded-lg shadow-xl">
+    Skip to main content
+  </a>
+
+  <!-- Global Header Partial -->
+  @include('partials.header')
+
+  <main id="main-content" class="flex-grow">
+    
+    <!-- Hero Header -->
+    <section class="relative pt-16 pb-14 text-center overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,rgba(15,118,110,0.35),rgba(0,0,0,0))] pointer-events-none -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold">
+          <span>OUR ARCHITECTURAL PHILOSOPHY</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          Abolishing the <br class="hidden sm:inline">
+          <span class="bg-gradient-to-r from-teal-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+            Multi-Vendor Software Tax.
+          </span>
+        </h1>
+        
+        <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          The average enterprise runs 18 disparate point-solutions. We built Rioiz so ambitious companies can run their entire operations from one account, one database schema, and one source of truth.
+        </p>
+      </div>
+    </section>
+
+    <!-- The Architectural Thesis (Contrasting Fragmented vs Unified) -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch tilt-card-container">
+        
+        <!-- The Problem Card -->
+        <div class="tilt-card p-8 rounded-3xl glass-panel border border-rose-500/30 flex flex-col justify-between shadow-2xl relative">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-rose-400 font-mono">The Fragmented Paradigm (Old Way)</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2 mb-4 tracking-tight">The Multi-SaaS Nightmare</h2>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+              Companies buy one tool for CRM, another for ERP, a third for Payroll, and a fourth for Billing. They hire consulting teams to build brittle webhooks that desynchronize during peak loads, resulting in duplicate data, phantom stock, and corrupted ledgers.
+            </p>
+            <ul class="space-y-3 text-xs sm:text-sm text-rose-300/90">
+              <li class="flex items-center gap-2.5"><span class="text-rose-400 font-bold">✕</span> Incompatible data formats &amp; conflicting customer records</li>
+              <li class="flex items-center gap-2.5"><span class="text-rose-400 font-bold">✕</span> 14+ different monthly SaaS vendor contracts and renewals</li>
+              <li class="flex items-center gap-2.5"><span class="text-rose-400 font-bold">✕</span> Engineers spending 40% of their sprints maintaining custom ETL</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-rose-500/20 text-xs font-mono text-rose-400">
+            Status Quo: High fragility • High cost • Low velocity
+          </div>
+        </div>
+
+        <!-- The Rioiz Solution Card -->
+        <div class="tilt-card p-8 rounded-3xl glass-panel-interactive border border-teal-500/40 shadow-2xl flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-teal-300 font-mono">The Rioiz Synapse (Modern Way)</span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30 font-mono">Unified</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4 tracking-tight">One Unified Data Fabric</h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+              Every Rioiz module (ERP, CRM, HRMS, Inventory, Billing) operates on a shared relational substrate. When a deal closes in CRM, stock is reserved in Inventory, an invoice is generated in Billing, and journal entries post to ERP instantly.
+            </p>
+            <ul class="space-y-3 text-xs sm:text-sm text-teal-200">
+              <li class="flex items-center gap-2.5"><svg class="w-4 h-4 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Single tenant identity &amp; role-based security model</li>
+              <li class="flex items-center gap-2.5"><svg class="w-4 h-4 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Sub-millisecond synchronous cross-module event dispatch</li>
+              <li class="flex items-center gap-2.5"><svg class="w-4 h-4 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 1 unified bill with transparent modular scalability</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-teal-500/20 text-xs font-mono text-teal-300 font-semibold">
+            Rioiz Standard: Zero latency • Complete compliance • Instant clarity
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Trust Accreditations Strip -->
+    @include('partials.trust-strip')
+
+    <!-- Security & Governance Architecture -->
+    <section id="security" class="py-20 border-t border-slate-800/80 bg-slate-950/40" aria-labelledby="security-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
+            ENTERPRISE SECURITY
+          </div>
+          <h2 id="security-heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Zero-Trust Cloud Governance</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-2">Designed from ground zero to satisfy the most demanding corporate compliance teams.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 tilt-card-container">
+          
+          <div class="tilt-card p-6 sm:p-8 rounded-3xl glass-panel-interactive border border-slate-800/80">
+            <div class="w-12 h-12 rounded-2xl bg-teal-500/20 text-teal-300 border border-teal-500/30 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">AES-256 &amp; TLS 1.3</h3>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              All data encrypted in-transit and at-rest. Database volumes use unique tenant encryption keys with automated annual key rotation.
+            </p>
+          </div>
+
+          <div class="tilt-card p-6 sm:p-8 rounded-3xl glass-panel-interactive border border-slate-800/80">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">SOC-2 Type II Certified</h3>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Continuously audited across Security, Confidentiality, and Availability trust principles by independent accredited auditors.
+            </p>
+          </div>
+
+          <div class="tilt-card p-6 sm:p-8 rounded-3xl glass-panel-interactive border border-slate-800/80">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Local Data Residency</h3>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Hosted in sovereign tier-4 Indian data centers (AWS Mumbai / Azure Pune) guaranteeing statutory tax and banking residency laws.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Company Journey Timeline -->
+    <section class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
+          MILESTONES
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">The Engineering Journey</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">How we built the unified worksuite architecture from first principles.</p>
+      </div>
+
+      <div class="relative border-l-2 border-teal-500/30 pl-8 space-y-10">
+        
+        <div class="relative glass-panel rounded-2xl p-6 sm:p-7 border border-slate-800/80">
+          <span class="absolute -left-[42px] top-6 w-5 h-5 rounded-full bg-teal-500 border-4 border-[#060810] shadow-[0_0_12px_rgba(20,184,166,0.8)]"></span>
+          <span class="text-xs font-bold text-teal-400 uppercase tracking-wider font-mono">2023 • Genesis</span>
+          <h3 class="text-lg font-bold text-white mt-1">Single Schema Core Prototyped</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+            Engineered the core relational substrate capable of orchestrating double-entry financial ledger accounts and CRM pipelines without external message queues.
+          </p>
+        </div>
+
+        <div class="relative glass-panel rounded-2xl p-6 sm:p-7 border border-slate-800/80">
+          <span class="absolute -left-[42px] top-6 w-5 h-5 rounded-full bg-teal-500 border-4 border-[#060810] shadow-[0_0_12px_rgba(20,184,166,0.8)]"></span>
+          <span class="text-xs font-bold text-teal-400 uppercase tracking-wider font-mono">2024 • Scalability</span>
+          <h3 class="text-lg font-bold text-white mt-1">Rioiz Synapse Data Bus Released</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+            Delivered sub-millisecond event propagation between inventory stock reserves and billing subscriptions. SOC-2 Type II audit successfully completed.
+          </p>
+        </div>
+
+        <div class="relative glass-panel rounded-2xl p-6 sm:p-7 border border-slate-800/80">
+          <span class="absolute -left-[42px] top-6 w-5 h-5 rounded-full bg-teal-500 border-4 border-[#060810] shadow-[0_0_12px_rgba(20,184,166,0.8)]"></span>
+          <span class="text-xs font-bold text-teal-400 uppercase tracking-wider font-mono">2025 • Full Suite</span>
+          <h3 class="text-lg font-bold text-white mt-1">All 5 Core Suites Deployed</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+            Rioiz HRMS and automated GST e-Invoicing modules launched to general availability, powering hundreds of high-growth Indian enterprises.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Rollout CTA Band -->
+    @include('partials.cta-band')
+
+  </main>
+
+  @include('partials.footer')
+  @include('partials.cookie-banner')
+
+  <script type="module" src="/src/assets/js/main.js"></script>
+</body>
+</html>

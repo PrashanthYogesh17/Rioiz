@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering &amp; Operations Blog — Rioiz Worksuite</title>
+  <meta name="description" content="Technical deep-dives on ERP consolidation, distributed ledgers, multi-tenant databases, and enterprise architecture.">
+  
+  <meta property="og:title" content="Rioiz Engineering &amp; Operations Blog">
+  <meta property="og:description" content="Architectural insights on unifying enterprise software systems.">
+  
+  <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+  <link rel="stylesheet" href="/src/assets/css/main.css">
+  <style>
+    html, body {
+      background-color: #060810 !important;
+      color: #e2e8f0;
+    }
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="bg-[#060810] text-slate-200 antialiased selection:bg-teal-500 selection:text-slate-950 font-sans min-h-screen flex flex-col justify-between">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-teal-600 text-white rounded-lg shadow-xl">
+    Skip to main content
+  </a>
+
+  <!-- Global Header Partial -->
+  @include('partials.header')
+
+  <main id="main-content" class="flex-grow">
+    
+    <!-- Blog Hero Section -->
+    <section class="relative pt-16 pb-14 text-center overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,rgba(15,118,110,0.35),rgba(0,0,0,0))] pointer-events-none -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold">
+          <span>THOUGHT LEADERSHIP &amp; ARCHITECTURE</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          The Enterprise <br class="hidden sm:inline">
+          <span class="bg-gradient-to-r from-teal-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+            Dispatch.
+          </span>
+        </h1>
+        
+        <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Technical post-mortems, schema blueprints, and operational playbooks written by the engineers building Rioiz.
+        </p>
+      </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+      
+      <!-- Featured Post Banner (Links to /blog-post.html) -->
+      <article class="mb-16 p-8 sm:p-10 rounded-3xl glass-panel-interactive border border-teal-500/30 shadow-2xl relative group">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-500/20 text-teal-300 border border-teal-500/30 font-mono">Architecture Featured</span>
+              <span class="text-xs text-slate-400">8 min read • Published recently</span>
+            </div>
+            
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white group-hover:text-teal-300 transition tracking-tight">
+              <a href="/blog-post.html">
+                De-siloing Enterprise Workflows: The Unified Suite Advantage
+              </a>
+            </h2>
+
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+              Why stitching together 14 separate point-solutions with custom webhooks invariably fails under scale, and how a single relational schema eliminates financial latency.
+            </p>
+
+            <div class="flex items-center gap-3 pt-2">
+              <div class="w-10 h-10 rounded-xl bg-teal-600 text-white font-bold text-xs flex items-center justify-center shadow-lg shadow-teal-600/30">
+                DK
+              </div>
+              <div class="text-xs">
+                <div class="font-bold text-white">Devraj Kapur</div>
+                <div class="text-slate-400">Chief Technology Officer, Rioiz</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 flex lg:justify-end">
+            <a href="/blog-post.html" class="rioiz-btn-primary flex items-center gap-2">
+              <span>Read Full Article</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Articles Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 tilt-card-container" data-stagger-cards>
+        
+        <!-- Post 2 -->
+        <article class="tilt-card rounded-3xl glass-panel-interactive p-7 border border-slate-800/80 shadow-xl flex flex-col justify-between hover:border-teal-400/50 transition">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-teal-500/20 text-teal-300 border border-teal-500/30 font-mono">Financials</span>
+              <span class="text-[11px] text-slate-400 font-mono">6 min read</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 hover:text-teal-300 transition">
+              <a href="/blog-post.html">Why Automated 3-Way Matching Slashes Month-End Closes</a>
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              How linking POs directly to warehouse receipts and invoices reduces manual audit overhead by 80%.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+            <span>Finance Engineering</span>
+            <a href="/blog-post.html" class="text-teal-400 font-semibold hover:underline flex items-center gap-1">Read &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="tilt-card rounded-3xl glass-panel-interactive p-7 border border-slate-800/80 shadow-xl flex flex-col justify-between hover:border-teal-400/50 transition">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-mono">Sales Ops</span>
+              <span class="text-[11px] text-slate-400 font-mono">5 min read</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 hover:text-teal-300 transition">
+              <a href="/blog-post.html">Zero-Lag Deal Velocity: Bridging CRM Pipelines to Inventory Stock</a>
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Prevent sales teams from booking deals against phantom stock by linking real-time warehouse reservations.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+            <span>Revenue Ops</span>
+            <a href="/blog-post.html" class="text-teal-400 font-semibold hover:underline flex items-center gap-1">Read &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="tilt-card rounded-3xl glass-panel-interactive p-7 border border-slate-800/80 shadow-xl flex flex-col justify-between hover:border-teal-400/50 transition">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono">Tax Tech</span>
+              <span class="text-[11px] text-slate-400 font-mono">9 min read</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 hover:text-teal-300 transition">
+              <a href="/blog-post.html">Designing For Government E-Invoicing (IRN) at 10k Reqs/Sec</a>
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Architectural lessons from handling Indian GST validation and QR generation under massive holiday peak volumes.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+            <span>Core Infrastructure</span>
+            <a href="/blog-post.html" class="text-teal-400 font-semibold hover:underline flex items-center gap-1">Read &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Newsletter Capture Block -->
+      <div class="mt-20 max-w-3xl mx-auto">
+        @include('partials.newsletter-form')
+      </div>
+
+    </div>
+
+    <!-- Trust Strip -->
+    @include('partials.trust-strip')
+
+  </main>
+
+  @include('partials.footer')
+  @include('partials.cookie-banner')
+
+  <script type="module" src="/src/assets/js/main.js"></script>
+</body>
+</html>

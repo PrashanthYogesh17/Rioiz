@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rioiz Worksuite — Autonomous 3D Enterprise Operating System</title>
+  <meta name="description" content="Rioiz is the autonomous business operating system unifying ERP, CRM, HRMS, Inventory, and Billing into a single transactional engine with sub-millisecond Synapse dispatch.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rioiz Worksuite — The Autonomous Enterprise Fabric">
+  <meta property="og:description" content="Consolidate ERP, CRM, HRMS, Inventory, and Billing on one relational substrate with sub-millisecond Synapse dispatch.">
+  <meta property="og:url" content="https://rioiz.com">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+  <link rel="stylesheet" href="/src/assets/css/main.css">
+  <style>
+    html, body {
+      background-color: #060810 !important;
+      color: #e2e8f0;
+    }
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Rioiz Worksuite",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Cloud / Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "999",
+      "priceCurrency": "INR"
+    },
+    "description": "Unified ERP, CRM, HRMS, Inventory, and Billing SaaS platform."
+  }
+  </script>
+</head>
+<body class="bg-[#060810] text-slate-200 antialiased selection:bg-teal-500 selection:text-slate-950 font-sans min-h-screen">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-teal-600 text-white rounded-lg shadow-xl">
+    Skip to main content
+  </a>
+
+  <!-- Global Header Partial -->
+  @include('partials.header')
+
+  <main id="main-content">
+    
+    <!-- 3D Interactive Hero Command Center -->
+    @include('partials.hero')
+
+    <!-- Enterprise Trust & Logo Marquee Strip -->
+    @include('partials.trust-strip')
+
+    <!-- Live Interactive Synapse Event Simulator & Bento Grid -->
+    @include('partials.process-steps')
+
+    <!-- Interactive 5-Engine 3D Suite Cockpit Showcase -->
+    @include('partials.product-card')
+
+    <!-- Interactive ROI & Annual Cost Savings Calculator -->
+    @include('partials.roi-calculator')
+
+    <!-- High-Tech Transparent Pricing Section -->
+    <section class="py-24 bg-[#070a13] text-white relative overflow-hidden" aria-labelledby="pricing-teaser-heading">
+      <div class="absolute top-1/2 right-1/3 w-[600px] h-[400px] bg-teal-500/10 blur-[150px] rounded-full pointer-events-none -z-10"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold">
+            <span>PREDICTABLE ENTERPRISE TIERS</span>
+          </div>
+          
+          <h2 id="pricing-teaser-heading" class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Transparent Pricing. <br>
+            <span class="bg-gradient-to-r from-teal-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+              Zero Hidden Connectors.
+            </span>
+          </h2>
+          
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            One consolidated bill for your entire operational stack. Save 20% on annual commitments.
+          </p>
+        </div>
+
+        @include('partials.pricing-card')
+
+        <div class="text-center mt-12">
+          <a href="/pricing.html" class="rioiz-btn-outline-light text-xs font-semibold px-6 py-3.5">
+            Examine Full 25+ Feature Matrix &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Testimonials Section -->
+    <section class="py-24 bg-[#060810] relative overflow-hidden" aria-labelledby="testimonials-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold">
+            <span>CUSTOMER VALIDATION</span>
+          </div>
+          
+          <h2 id="testimonials-heading" class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Validated by High-Velocity <br>
+            <span class="bg-gradient-to-r from-teal-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+              Enterprise Operators.
+            </span>
+          </h2>
+          
+          <p class="text-slate-400 text-sm sm:text-base">
+            Read what technology directors and VPs of Operations say about unifying their stacks onto Rioiz.
+          </p>
+        </div>
+
+        @include('partials.testimonial-card')
+      </div>
+    </section>
+
+    <!-- Futuristic High-Impact CTA Band -->
+    @include('partials.cta-band')
+
+  </main>
+
+  <!-- Global Footer & Cookie Consent -->
+  @include('partials.footer')
+  @include('partials.cookie-banner')
+
+  <script type="module" src="/src/assets/js/main.js"></script>
+</body>
+</html>

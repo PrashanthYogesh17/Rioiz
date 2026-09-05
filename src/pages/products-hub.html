@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products Hub — Rioiz Interconnected Worksuite Modules</title>
+  <meta name="description" content="Explore Rioiz's 5 core business suites: ERP, CRM, HRMS, Inventory, and Billing. Filter by capability and assemble your custom operating system.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rioiz Products Hub — 5 Interconnected Modules">
+  <meta property="og:description" content="Explore and filter the complete Rioiz Worksuite catalog.">
+  
+  <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+  <link rel="stylesheet" href="/src/assets/css/main.css">
+  <style>
+    html, body {
+      background-color: #060810 !important;
+      color: #e2e8f0;
+    }
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="bg-[#060810] text-slate-200 antialiased selection:bg-teal-500 selection:text-slate-950 font-sans min-h-screen">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-teal-600 text-white rounded-lg shadow-xl">
+    Skip to main content
+  </a>
+
+  <!-- Floating Pill Header Partial -->
+  @include('partials.header')
+
+  <main id="main-content">
+    
+    <!-- Hero Header for Products Hub -->
+    <section class="relative pt-16 pb-14 overflow-hidden text-center">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,rgba(15,118,110,0.35),rgba(0,0,0,0))] pointer-events-none -z-10"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold">
+          <span>ENTERPRISE CATALOG V3.0</span>
+        </span>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+          Interconnected <br class="hidden sm:inline">
+          <span class="bg-gradient-to-r from-teal-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+            Products Hub.
+          </span>
+        </h1>
+        
+        <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Discover modular SaaS applications engineered on a single database schema. Add suites dynamically as your enterprise expands.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filterable Product Catalog Section (Alpine.js productsFilter) -->
+    <section class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" x-data="productsFilter" aria-label="Product Catalog">
+      
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <button 
+          type="button" 
+          class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all border"
+          :class="activeCategory === 'all' ? 'bg-teal-600 text-white border-teal-400 shadow-[0_0_20px_rgba(20,184,166,0.4)]' : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'"
+          @click="setCategory('all')">
+          All Suites (5)
+        </button>
+        
+        <button 
+          type="button" 
+          class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all border"
+          :class="activeCategory === 'financials' ? 'bg-teal-600 text-white border-teal-400 shadow-[0_0_20px_rgba(20,184,166,0.4)]' : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'"
+          @click="setCategory('financials')">
+          Business Management (2)
+        </button>
+
+        <button 
+          type="button" 
+          class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all border"
+          :class="activeCategory === 'sales' ? 'bg-teal-600 text-white border-teal-400 shadow-[0_0_20px_rgba(20,184,166,0.4)]' : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'"
+          @click="setCategory('sales')">
+          Sales &amp; CRM (1)
+        </button>
+
+        <button 
+          type="button" 
+          class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all border"
+          :class="activeCategory === 'people' ? 'bg-teal-600 text-white border-teal-400 shadow-[0_0_20px_rgba(20,184,166,0.4)]' : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'"
+          @click="setCategory('people')">
+          People &amp; HRMS (1)
+        </button>
+
+        <button 
+          type="button" 
+          class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all border"
+          :class="activeCategory === 'ops' ? 'bg-teal-600 text-white border-teal-400 shadow-[0_0_20px_rgba(20,184,166,0.4)]' : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'"
+          @click="setCategory('ops')">
+          Operations &amp; Supply (1)
+        </button>
+      </div>
+
+      <!-- Filterable Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 tilt-card-container">
+        
+        <!-- ERP Card -->
+        <div id="erp" x-show="isVisible('financials')" class="tilt-card rounded-3xl glass-panel-interactive p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-teal-400 text-xs font-semibold uppercase tracking-wider font-mono">Business Management</span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30">Core Engine</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white">Rioiz ERP</h2>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Run finance and operations on Rioiz ERP &mdash; general ledger, AP/AR, multi-currency consolidation, and automated procurement.
+            </p>
+            <div class="my-6 pt-4 border-t border-slate-800 space-y-2 text-xs text-slate-300">
+              <div class="flex items-center gap-2">
+                <span class="text-teal-400 font-bold">✓</span> Multi-currency ledger consolidation
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-teal-400 font-bold">✓</span> AI-assisted 3-way invoice matching
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-teal-400 font-bold">✓</span> Indian GST &amp; TDS automated filing
+              </div>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-lg font-bold text-white font-mono">₹1,999</span>
+              <span class="text-[11px] text-slate-400">/mo</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <a href="/product-detail.html" class="px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">
+                Deep Specs
+              </a>
+              <button 
+                type="button" 
+                @click="$store.cart.addItem({ id: 'erp', name: 'Rioiz ERP', badge: 'Core', priceMonthly: 2499, priceAnnual: 1999 })"
+                class="rioiz-btn-primary text-xs py-2 px-3.5 shadow-md shadow-teal-500/20">
+                <span x-text="$store.cart.hasItem('erp') ? '✓ Added' : '+ Add Suite'"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRM Card -->
+        <div id="crm" x-show="isVisible('sales')" class="tilt-card rounded-3xl glass-panel-interactive p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-emerald-400 text-xs font-semibold uppercase tracking-wider font-mono">Revenue Velocity</span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Growth</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white">Rioiz CRM</h2>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Run pipeline, accounts, and revenue operations on Rioiz CRM &mdash; one workspace for contacts, deal velocity, and quotes.
+            </p>
+            <div class="my-6 pt-4 border-t border-slate-800 space-y-2 text-xs text-slate-300">
+              <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> Real-time warehouse stock lock on deals
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> WhatsApp &amp; corporate email sync
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> 1-click quote conversion to ERP ledger
+              </div>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-lg font-bold text-white font-mono">₹1,499</span>
+              <span class="text-[11px] text-slate-400">/mo</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button 
+                type="button" 
+                @click="$store.cart.addItem({ id: 'crm', name: 'Rioiz CRM', badge: 'Growth', priceMonthly: 1899, priceAnnual: 1499 })"
+                class="rioiz-btn-primary text-xs py-2 px-3.5 shadow-md shadow-teal-500/20">
+                <span x-text="$store.cart.hasItem('crm') ? '✓ Added' : '+ Add Suite'"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Billing Card -->
+        <div id="billing" x-show="isVisible('financials')" class="tilt-card rounded-3xl glass-panel-interactive p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-cyan-400 text-xs font-semibold uppercase tracking-wider font-mono">Invoicing & Tax</span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Finance</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white">Rioiz Billing</h2>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Automated recurring customer billing, usage meters, government e-Invoicing (IRN), and multi-gateway checkout.
+            </p>
+            <div class="my-6 pt-4 border-t border-slate-800 space-y-2 text-xs text-slate-300">
+              <div class="flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Sub-second automated dunning retry
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Direct NIC portal GST IRN &amp; QR
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Customer self-service subscription portal
+              </div>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-lg font-bold text-white font-mono">₹1,199</span>
+              <span class="text-[11px] text-slate-400">/mo</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button 
+                type="button" 
+                @click="$store.cart.addItem({ id: 'billing', name: 'Rioiz Billing', badge: 'Finance', priceMonthly: 1599, priceAnnual: 1199 })"
+                class="rioiz-btn-primary text-xs py-2 px-3.5 shadow-md shadow-teal-500/20">
+                <span x-text="$store.cart.hasItem('billing') ? '✓ Added' : '+ Add Suite'"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- HRMS Card -->
+        <div id="hrms" x-show="isVisible('people')" class="tilt-card rounded-3xl glass-panel-interactive p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-amber-400 text-xs font-semibold uppercase tracking-wider font-mono">Workforce Management</span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">People</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white">Rioiz HRMS</h2>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Complete employee lifecycle management &mdash; statutory payroll, biometric attendance, tax declaration workflows, and appraisals.
+            </p>
+            <div class="my-6 pt-4 border-t border-slate-800 space-y-2 text-xs text-slate-300">
+              <div class="flex items-center gap-2">
+                <span class="text-amber-400 font-bold">✓</span> 1-click PF, ESI, TDS statutory payroll
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-amber-400 font-bold">✓</span> Biometric device API &amp; geofence logs
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-amber-400 font-bold">✓</span> Self-service employee mobile portal
+              </div>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-lg font-bold text-white font-mono">₹1,299</span>
+              <span class="text-[11px] text-slate-400">/mo</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button 
+                type="button" 
+                @click="$store.cart.addItem({ id: 'hrms', name: 'Rioiz HRMS', badge: 'People', priceMonthly: 1699, priceAnnual: 1299 })"
+                class="rioiz-btn-primary text-xs py-2 px-3.5 shadow-md shadow-teal-500/20">
+                <span x-text="$store.cart.hasItem('hrms') ? '✓ Added' : '+ Add Suite'"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inventory Card -->
+        <div id="inventory" x-show="isVisible('ops')" class="tilt-card rounded-3xl glass-panel-interactive p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-purple-400 text-xs font-semibold uppercase tracking-wider font-mono">Supply Chain</span>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">Operations</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white">Rioiz Inventory</h2>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Multi-warehouse tracking, batch/serial barcodes, automated replenishment triggers, and landed-cost calculation.
+            </p>
+            <div class="my-6 pt-4 border-t border-slate-800 space-y-2 text-xs text-slate-300">
+              <div class="flex items-center gap-2">
+                <span class="text-purple-400 font-bold">✓</span> Multi-location warehouse transfers
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-purple-400 font-bold">✓</span> Dynamic low-stock automated POs
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-purple-400 font-bold">✓</span> Real-time serial barcode scanning
+              </div>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-lg font-bold text-white font-mono">₹1,699</span>
+              <span class="text-[11px] text-slate-400">/mo</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button 
+                type="button" 
+                @click="$store.cart.addItem({ id: 'inventory', name: 'Rioiz Inventory', badge: 'Ops', priceMonthly: 2199, priceAnnual: 1699 })"
+                class="rioiz-btn-primary text-xs py-2 px-3.5 shadow-md shadow-teal-500/20">
+                <span x-text="$store.cart.hasItem('inventory') ? '✓ Added' : '+ Add Suite'"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Enterprise Trust Strip -->
+    @include('partials.trust-strip')
+
+    <!-- High-Impact CTA Band -->
+    @include('partials.cta-band')
+
+  </main>
+
+  <!-- Global Footer & Cookie Consent -->
+  @include('partials.footer')
+  @include('partials.cookie-banner')
+
+  <script type="module" src="/src/assets/js/main.js"></script>
+</body>
+</html>

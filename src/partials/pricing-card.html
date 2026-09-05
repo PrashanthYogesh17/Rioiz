@@ -1,0 +1,163 @@
+<!-- Futuristic Rioiz Pricing Band -->
+<div x-data="pricingState('annual')" class="space-y-12">
+  
+  <!-- Monthly / Annual Toggle Switch -->
+  <div class="flex items-center justify-center gap-4">
+    <span class="text-sm font-semibold transition" :class="!isAnnual ? 'text-white' : 'text-slate-400'">Monthly Billing</span>
+    
+    <button 
+      type="button" 
+      class="relative w-14 h-7 rounded-full bg-slate-800 border border-slate-700 p-1 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+      :class="{ 'bg-teal-600 border-teal-500': isAnnual }"
+      @click="toggle()"
+      aria-label="Toggle annual pricing with 20% discount"
+      :aria-pressed="isAnnual">
+      <span 
+        class="block w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200"
+        :class="{ 'translate-x-7': isAnnual }">
+      </span>
+    </button>
+    
+    <div class="flex items-center gap-2">
+      <span class="text-sm font-semibold transition" :class="isAnnual ? 'text-white' : 'text-slate-400'">Annual Billing</span>
+      <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/40 shadow-sm">
+        Save 20%
+      </span>
+    </div>
+  </div>
+
+  <!-- 3 Tier Cards Grid with 3D Tilt & Glass Glowing Surfaces -->
+  <div class="grid gap-6 md:grid-cols-3 tilt-card-container">
+    
+    <!-- Tier 1: Starter -->
+    <div class="tilt-card p-8 md:p-10 rounded-3xl glass-panel-interactive flex flex-col justify-between">
+      <div>
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-2">Core Foundation</div>
+        <h3 class="text-white text-2xl mb-2 font-bold">Starter Worksuite</h3>
+        <p class="text-slate-400 text-xs mb-6 leading-relaxed">Essential operational tier for single-entity businesses seeking unified workflows.</p>
+        
+        <div class="text-white text-3xl sm:text-4xl font-extrabold mb-6 flex items-baseline gap-1 font-mono">
+          <span x-text="'₹' + getPrice('starter').toLocaleString('en-IN')">₹999</span>
+          <span class="text-xs font-normal text-slate-400">INR /mo</span>
+        </div>
+
+        <ul class="space-y-3 mb-8 text-slate-300 text-xs">
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>Choice of 2 Core Suites (e.g. ERP + Billing)</span>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>15 Active User Seats Included</span>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>Standard Core SLA (99.5% Uptime)</span>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>1 Isolated Staging Sandbox Pod</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <a href="/register.html" class="rioiz-btn-ghost w-full text-center block text-xs py-3.5">
+          Deploy Starter Sandbox
+        </a>
+      </div>
+    </div>
+
+    <!-- Tier 2: Growth (Highlighted / Most Popular) -->
+    <div class="tilt-card p-8 md:p-10 rounded-3xl glass-panel border-2 border-teal-500/80 shadow-[0_0_50px_rgba(20,184,166,0.3)] bg-[#0b1120] flex flex-col justify-between relative scale-105 z-10">
+      <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-teal-500 to-emerald-400 text-slate-950 shadow-lg shadow-teal-500/40">
+        Most Popular
+      </div>
+
+      <div>
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 mb-2">High-Velocity Stack</div>
+        <h3 class="text-white text-2xl mb-2 font-bold">Growth Worksuite</h3>
+        <p class="text-slate-300 text-xs mb-6 leading-relaxed">Full 5-suite interconnectivity with automated ledgers, inventory, and deal pipelines.</p>
+        
+        <div class="text-white text-3xl sm:text-4xl font-extrabold mb-6 flex items-baseline gap-1 font-mono">
+          <span class="text-teal-300" x-text="'₹' + getPrice('growth').toLocaleString('en-IN')">₹2,499</span>
+          <span class="text-xs font-normal text-slate-400">INR /mo</span>
+        </div>
+
+        <ul class="space-y-3 mb-8 text-slate-200 text-xs">
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <strong class="text-white">All 5 Suites Included (ERP, CRM, HRMS, Inv, Bill)</strong>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>75 User Seats + Unlimited Read-Only</span>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>99.9% Financially Backed SLA</span>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>Priority Incident Routing (&lt; 4h)</span>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>3 Isolated Sandbox Test Pods</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <a href="/register.html" class="rioiz-btn-primary w-full text-center block text-xs py-4 shadow-xl shadow-teal-600/40">
+          Deploy Growth Sandbox &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Tier 3: Enterprise -->
+    <div class="tilt-card p-8 md:p-10 rounded-3xl glass-panel-interactive flex flex-col justify-between">
+      <div>
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-2">Dedicated Cloud VPC</div>
+        <h3 class="text-white text-2xl mb-2 font-bold">Enterprise Bespoke</h3>
+        <p class="text-slate-400 text-xs mb-6 leading-relaxed">Dedicated single-tenant PostgreSQL pods, custom SLA, and technical account management.</p>
+        
+        <div class="text-white text-3xl sm:text-4xl font-extrabold mb-6 flex items-baseline gap-1 font-mono">
+          <span x-text="'₹' + getPrice('enterprise').toLocaleString('en-IN')">₹5,599</span>
+          <span class="text-xs font-normal text-slate-400">INR /mo</span>
+        </div>
+
+        <ul class="space-y-3 mb-8 text-slate-300 text-xs">
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <strong class="text-white">All 5 Suites + Custom Module Extensions</strong>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>Unlimited Seats & API Invocations</span>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>99.99% Financial SLA with TAM Support</span>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>Single-Tenant Isolated DB (BYOK Encryption)</span>
+          </li>
+          <li class="flex gap-2.5 items-start">
+            <span class="text-teal-400 font-bold shrink-0">✓</span>
+            <span>Custom SOC-2 & ISO Audit Support</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <a href="/contact.html" class="rioiz-btn-ghost w-full text-center block text-xs py-3.5">
+          Schedule Architect Review
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</div>

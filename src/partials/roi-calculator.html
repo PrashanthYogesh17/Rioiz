@@ -1,0 +1,116 @@
+<!-- Interactive ROI & Enterprise Cost Savings Calculator -->
+<section id="roi-calculator" class="py-24 relative overflow-hidden bg-[#060810]" x-data="roiCalculator" aria-labelledby="roi-heading">
+  
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-teal-500/10 blur-[160px] rounded-full pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold">
+        <span>💰 TOTAL COST OF OWNERSHIP</span>
+      </div>
+      
+      <h2 id="roi-heading" class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        Calculate Your Annual <br>
+        <span class="bg-gradient-to-r from-teal-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+          Consolidated Savings.
+        </span>
+      </h2>
+      
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+        Stop paying the fragmented multi-vendor SaaS tax. Slide your organizational headcount to see your projected bottom-line dividend.
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto p-8 sm:p-12 rounded-3xl glass-panel border border-teal-500/30 shadow-[0_0_60px_rgba(15,118,110,0.15)] space-y-10">
+      
+      <!-- Interactive Headcount Slider -->
+      <div class="space-y-4 text-center">
+        <label for="team-slider" class="block text-xs font-bold uppercase tracking-wider text-teal-300">
+          Select Your Team Size:
+        </label>
+        <div class="text-4xl sm:text-5xl font-extrabold text-white font-mono flex items-center justify-center gap-3">
+          <span x-text="teamSize"></span>
+          <span class="text-lg sm:text-xl font-medium text-slate-400">Team Members</span>
+        </div>
+        
+        <div class="max-w-xl mx-auto pt-2">
+          <input 
+            id="team-slider"
+            type="range" 
+            min="10" 
+            max="300" 
+            step="5" 
+            x-model.number="teamSize"
+            class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500 focus:outline-none">
+          <div class="flex justify-between text-[11px] text-slate-500 mt-2 font-mono">
+            <span>10 Employees</span>
+            <span>75 Employees</span>
+            <span>150 Employees</span>
+            <span>300+ Enterprise</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Comparison Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        
+        <!-- The Fragmented 5-SaaS Nightmare -->
+        <div class="p-6 rounded-2xl bg-rose-950/20 border border-rose-800/40 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="text-[11px] font-bold uppercase tracking-wider text-rose-400">Fragmented Status Quo (5 Vendors)</div>
+            <div class="text-xs text-slate-400 mt-1">Salesforce + SAP/Tally + Darwinbox + Zoho + Chargebee</div>
+            
+            <div class="mt-6">
+              <div class="text-xs text-slate-400">Estimated Annual Spend:</div>
+              <div class="text-3xl font-extrabold text-rose-300 font-mono mt-1" x-text="formatCurrency(fragmentedAnnual)"></div>
+              <div class="text-[11px] text-rose-400/80 mt-1">~ ₹1,850 per seat / month across 5 separate licenses</div>
+            </div>
+          </div>
+
+          <ul class="text-xs text-rose-300/70 space-y-1.5 pt-4 border-t border-rose-900/30">
+            <li>✕ 5 monthly renewal contracts & billing departments</li>
+            <li>✕ Brittle custom API connectors & webhook failures</li>
+            <li>✕ Permanent 24-72h desynchronization between ledgers</li>
+          </ul>
+        </div>
+
+        <!-- The Rioiz Unified Solution -->
+        <div class="p-6 rounded-2xl bg-teal-950/30 border-2 border-teal-500/60 shadow-[0_0_30px_rgba(20,184,166,0.2)] flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="text-[11px] font-bold uppercase tracking-wider text-teal-300">Rioiz Unified Worksuite</div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-500/20 text-teal-300 font-mono">1 Single Bill</span>
+            </div>
+            <div class="text-xs text-slate-300 mt-1">All 5 Operational Suites on 1 Relational Substrate</div>
+
+            <div class="mt-6">
+              <div class="text-xs text-slate-400">Net Annual Projected Savings:</div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono mt-1" x-text="formatCurrency(annualSavings)"></div>
+              <div class="text-[11px] text-emerald-300 font-bold mt-1">
+                You save <span x-text="savingsPercent"></span>% of your software budget!
+              </div>
+            </div>
+          </div>
+
+          <ul class="text-xs text-teal-300 space-y-1.5 pt-4 border-t border-teal-500/30">
+            <li class="flex items-center gap-1.5"><svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Zero connector maintenance overhead</li>
+            <li class="flex items-center gap-1.5"><svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Sub-millisecond cross-suite data synchronicity</li>
+            <li class="flex items-center gap-1.5"><svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Dedicated single-tenant database isolation</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Action Button -->
+      <div class="text-center pt-2">
+        <a href="/register.html" class="rioiz-btn-primary px-8 py-4 text-sm font-bold shadow-xl shadow-teal-600/30">
+          <span>Lock In Your Consolidated Savings — Deploy Free Sandbox &rarr;</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>

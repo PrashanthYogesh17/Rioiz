@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing &amp; Plans — Transparent Enterprise SaaS Tiers | Rioiz Worksuite</title>
+  <meta name="description" content="Explore transparent INR pricing for Rioiz Worksuite. Starter, Growth, and Enterprise tiers with zero hidden integration fees.">
+  
+  <meta property="og:title" content="Rioiz Worksuite Pricing — Transparent &amp; Modular">
+  <meta property="og:description" content="Predictable INR pricing. Save 20% on annual plans. Compare all 25+ features.">
+  
+  <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+  <link rel="stylesheet" href="/src/assets/css/main.css">
+  <style>
+    html, body {
+      background-color: #060810 !important;
+      color: #e2e8f0;
+    }
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="bg-[#060810] text-slate-200 antialiased selection:bg-teal-500 selection:text-slate-950 font-sans min-h-screen flex flex-col justify-between">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-teal-600 text-white rounded-lg shadow-xl">
+    Skip to main content
+  </a>
+
+  <!-- Global Header Partial -->
+  @include('partials.header')
+
+  <main id="main-content" class="flex-grow">
+    
+    <!-- Pricing Hero Section -->
+    <section class="relative pt-16 pb-14 text-center overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,rgba(15,118,110,0.35),rgba(0,0,0,0))] pointer-events-none -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold">
+          <span>STRAIGHTFORWARD ENTERPRISE PRICING</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          Invest in Velocity. <br class="hidden sm:inline">
+          <span class="bg-gradient-to-r from-teal-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+            Never in Hidden Connectors.
+          </span>
+        </h1>
+        
+        <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          One predictable bill for your entire operational stack. No seat penalties, no per-API invocation charges, no surprise year-two hikes.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3 Tier Cards with Monthly / Annual Switcher -->
+    <section class="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Subscription Plans">
+      @include('partials.pricing-card')
+    </section>
+
+    <!-- Trust Accreditations Strip -->
+    @include('partials.trust-strip')
+
+    <!-- Comprehensive Full-Length Comparison Matrix -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="matrix-heading">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
+          DETAILED COMPARISON
+        </div>
+        <h2 id="matrix-heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Full Capability Comparison Matrix</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">Examine every architectural guardrail and module entitlement side-by-side.</p>
+      </div>
+
+      @include('partials.pricing-table')
+    </section>
+
+    <!-- Pricing Specific FAQ Accordion -->
+    <section class="py-20 border-t border-slate-800/80 bg-slate-950/40" x-data="accordion('pf-1')" aria-labelledby="pricing-faq-heading">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
+            COMMERCIAL CLARITY
+          </div>
+          <h2 id="pricing-faq-heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Pricing &amp; Commercial Inquiries</h2>
+        </div>
+
+        <div class="space-y-4">
+          
+          <div class="p-5 rounded-2xl glass-panel-interactive border border-slate-800/80">
+            <button type="button" @click="toggle('pf-1')" class="w-full flex items-center justify-between text-left font-bold text-white text-sm">
+              <span>Can we start with one suite and add others later without re-negotiating?</span>
+              <svg class="w-4 h-4 text-teal-400 transition-transform" :class="{ 'rotate-180': isOpen('pf-1') }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div x-show="isOpen('pf-1')" x-collapse class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Absolutely. Rioiz is designed for modular expansion. You can start with Rioiz ERP today and activate CRM or Inventory with 1 click in your account settings. Billing is prorated to your existing cycle.
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-panel-interactive border border-slate-800/80">
+            <button type="button" @click="toggle('pf-2')" class="w-full flex items-center justify-between text-left font-bold text-white text-sm">
+              <span>Are GST e-Invoices and tax deductions generated automatically?</span>
+              <svg class="w-4 h-4 text-teal-400 transition-transform" :class="{ 'rotate-180': isOpen('pf-2') }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div x-show="isOpen('pf-2')" x-collapse class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Yes. All subscriptions include 100% compliant Indian GST tax invoices with valid IRN and QR codes automatically delivered to your finance department and registered in your Rioiz account ledger.
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-panel-interactive border border-slate-800/80">
+            <button type="button" @click="toggle('pf-3')" class="w-full flex items-center justify-between text-left font-bold text-white text-sm">
+              <span>What happens to our sandbox data after the 14-day trial?</span>
+              <svg class="w-4 h-4 text-teal-400 transition-transform" :class="{ 'rotate-180': isOpen('pf-3') }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div x-show="isOpen('pf-3')" x-collapse class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Your sandbox configuration, custom fields, and imported test data are retained for 30 days. When you choose a plan, your sandbox can be converted into your live production workspace with zero data loss.
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-panel-interactive border border-slate-800/80">
+            <button type="button" @click="toggle('pf-4')" class="w-full flex items-center justify-between text-left font-bold text-white text-sm">
+              <span>Do you offer custom SLA agreements and on-premise deployments?</span>
+              <svg class="w-4 h-4 text-teal-400 transition-transform" :class="{ 'rotate-180': isOpen('pf-4') }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div x-show="isOpen('pf-4')" x-collapse class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Yes. Our Enterprise tier includes 99.99% uptime guarantees, 15-minute critical incident response times, and dedicated VPC single-tenant clusters in Mumbai or Pune data centers.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Rollout CTA Band -->
+    @include('partials.cta-band')
+
+  </main>
+
+  @include('partials.footer')
+  @include('partials.cookie-banner')
+
+  <script type="module" src="/src/assets/js/main.js"></script>
+</body>
+</html>

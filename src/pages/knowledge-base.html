@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Base &amp; Developer Documentation — Rioiz Worksuite</title>
+  <meta name="description" content="Technical documentation, API specs, and integration guides for Rioiz ERP, CRM, HRMS, and Billing.">
+  
+  <meta property="og:title" content="Rioiz Documentation &amp; Knowledge Base">
+  <meta property="og:description" content="Developer docs, architectural patterns, and module guides.">
+  
+  <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+  <link rel="stylesheet" href="/src/assets/css/main.css">
+  <style>
+    html, body {
+      background-color: #060810 !important;
+      color: #e2e8f0;
+    }
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="bg-[#060810] text-slate-200 antialiased selection:bg-teal-500 selection:text-slate-950 font-sans min-h-screen flex flex-col justify-between">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-teal-600 text-white rounded-lg shadow-xl">
+    Skip to main content
+  </a>
+
+  <!-- Global Header Partial -->
+  @include('partials.header')
+
+  <main id="main-content" class="flex-grow py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full" x-data="knowledgeBase">
+    
+    <!-- Top Docs Search & Breadcrumb Bar -->
+    <div class="mb-10 pb-6 border-b border-slate-800/80 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <nav class="flex items-center gap-2 text-xs text-slate-400 mb-2" aria-label="Breadcrumb">
+          <a href="/index.html" class="hover:text-teal-300 transition">Home</a>
+          <span class="text-slate-600">/</span>
+          <span class="text-teal-300 font-semibold" aria-current="page">Documentation</span>
+        </nav>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Rioiz Developer &amp; Architecture Docs</h1>
+      </div>
+
+      <!-- Quick Search Bar -->
+      <div class="w-full md:w-80 relative">
+        <label for="kb-search" class="sr-only">Search documentation</label>
+        <input 
+          id="kb-search"
+          type="text" 
+          placeholder="Search docs (e.g. 'webhooks', 'IRN')..." 
+          class="w-full px-4 py-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-400 shadow-lg transition">
+      </div>
+    </div>
+
+    <!-- Docs Layout: Sidebar Nav + Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Sticky Sidebar Navigation (3 cols) -->
+      <aside class="lg:col-span-3 sticky top-24 space-y-6">
+        <div class="p-4 rounded-2xl glass-panel border border-slate-800/80 shadow-xl space-y-4 text-xs">
+          
+          <div>
+            <div class="font-bold uppercase tracking-wider text-teal-300 font-mono text-[10px] mb-2">Getting Started</div>
+            <ul class="space-y-1">
+              <li>
+                <button 
+                  type="button" 
+                  @click="setTopic('getting-started')"
+                  class="w-full text-left px-3 py-2 rounded-xl transition font-medium"
+                  :class="activeTopic === 'getting-started' ? 'bg-teal-500/20 text-teal-300 font-semibold border-l-2 border-teal-400 shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-900/60'">
+                  Overview &amp; Quickstart
+                </button>
+              </li>
+              <li>
+                <button 
+                  type="button" 
+                  @click="setTopic('architecture')"
+                  class="w-full text-left px-3 py-2 rounded-xl transition font-medium"
+                  :class="activeTopic === 'architecture' ? 'bg-teal-500/20 text-teal-300 font-semibold border-l-2 border-teal-400 shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-900/60'">
+                  Synapse Bus Architecture
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="font-bold uppercase tracking-wider text-teal-300 font-mono text-[10px] mb-2">Suite Guides</div>
+            <ul class="space-y-1">
+              <li>
+                <button 
+                  type="button" 
+                  @click="setTopic('erp-ledger')"
+                  class="w-full text-left px-3 py-2 rounded-xl transition font-medium"
+                  :class="activeTopic === 'erp-ledger' ? 'bg-teal-500/20 text-teal-300 font-semibold border-l-2 border-teal-400 shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-900/60'">
+                  Rioiz ERP: Double-Entry Ledger
+                </button>
+              </li>
+              <li>
+                <button 
+                  type="button" 
+                  @click="setTopic('crm-pipelines')"
+                  class="w-full text-left px-3 py-2 rounded-xl transition font-medium"
+                  :class="activeTopic === 'crm-pipelines' ? 'bg-teal-500/20 text-teal-300 font-semibold border-l-2 border-teal-400 shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-900/60'">
+                  Rioiz CRM: Pipeline Webhooks
+                </button>
+              </li>
+              <li>
+                <button 
+                  type="button" 
+                  @click="setTopic('billing-invoices')"
+                  class="w-full text-left px-3 py-2 rounded-xl transition font-medium"
+                  :class="activeTopic === 'billing-invoices' ? 'bg-teal-500/20 text-teal-300 font-semibold border-l-2 border-teal-400 shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-900/60'">
+                  Rioiz Billing: GST e-Invoicing
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="font-bold uppercase tracking-wider text-teal-300 font-mono text-[10px] mb-2">APIs &amp; Integrations</div>
+            <ul class="space-y-1">
+              <li>
+                <button 
+                  type="button" 
+                  @click="setTopic('api-auth')"
+                  class="w-full text-left px-3 py-2 rounded-xl transition font-medium"
+                  :class="activeTopic === 'api-auth' ? 'bg-teal-500/20 text-teal-300 font-semibold border-l-2 border-teal-400 shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-900/60'">
+                  API Tokens &amp; Authentication
+                </button>
+              </li>
+              <li>
+                <button 
+                  type="button" 
+                  @click="setTopic('webhooks')"
+                  class="w-full text-left px-3 py-2 rounded-xl transition font-medium"
+                  :class="activeTopic === 'webhooks' ? 'bg-teal-500/20 text-teal-300 font-semibold border-l-2 border-teal-400 shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-900/60'">
+                  Event Streams &amp; Webhooks
+                </button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- Main Docs Content (9 cols) -->
+      <article class="lg:col-span-9 p-8 sm:p-10 rounded-3xl glass-panel-interactive border border-slate-800/80 shadow-2xl space-y-8">
+        
+        <!-- Topic 1: Overview & Quickstart -->
+        <section x-show="activeTopic === 'getting-started'" class="space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold">
+            <span>GUIDE 101</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-white tracking-tight">Rioiz Worksuite Quickstart</h2>
+          <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+            Welcome to the Rioiz developer portal. Rioiz is an interconnected SaaS operating system uniting ERP, CRM, HRMS, Inventory, and Billing into a unified transactional engine.
+          </p>
+          
+          <h3 class="text-lg font-bold text-white mt-6">1. Obtaining Your Workspace API Secret</h3>
+          <p class="text-xs text-slate-400">
+            Every tenant workspace provides a scoped bearer token for automated provisioning and telemetry extraction:
+          </p>
+
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto shadow-inner">
+            <span class="text-slate-500"># Authenticate and query active suite health</span><br>
+            <span class="text-teal-400">curl</span> -X GET https://api.rioiz.app/v1/synapse/status \<br>
+            &nbsp;&nbsp;-H <span class="text-emerald-400">"Authorization: Bearer rz_live_8f9024ab9e"</span> \<br>
+            &nbsp;&nbsp;-H <span class="text-cyan-400">"Content-Type: application/json"</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mt-6">2. Response Payload</h3>
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto shadow-inner">
+{<br>
+&nbsp;&nbsp;<span class="text-teal-300">"status"</span>: <span class="text-emerald-400">"operational"</span>,<br>
+&nbsp;&nbsp;<span class="text-teal-300">"tenant_id"</span>: <span class="text-emerald-400">"org_acme_corp"</span>,<br>
+&nbsp;&nbsp;<span class="text-teal-300">"active_suites"</span>: [<span class="text-cyan-300">"erp"</span>, <span class="text-cyan-300">"crm"</span>, <span class="text-cyan-300">"hrms"</span>, <span class="text-cyan-300">"inventory"</span>, <span class="text-cyan-300">"billing"</span>],<br>
+&nbsp;&nbsp;<span class="text-teal-300">"sync_latency_ms"</span>: 1.18<br>
+}
+          </div>
+        </section>
+
+        <!-- Topic 2: Synapse Architecture -->
+        <section x-show="activeTopic === 'architecture'" class="space-y-6" style="display: none;">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold">
+            <span>CORE BUS</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-white tracking-tight">Synapse Bus Architecture</h2>
+          <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+            Unlike legacy software suites connected via asynchronous HTTP polling, Rioiz operates a dedicated relational event bus.
+          </p>
+          <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 text-xs text-slate-300">
+            <div class="font-bold text-white text-sm">Key Architectural Properties:</div>
+            <div><strong class="text-teal-300">Zero Data Inconsistencies:</strong> Stock quantities in Inventory and invoice lines in Billing are verified within the same transaction commit.</div>
+            <div><strong class="text-teal-300">Sub-Millisecond Sync:</strong> Internal state transitions happen directly in the PostgreSQL WAL without network roundtrips.</div>
+          </div>
+        </section>
+
+        <!-- Fallback for other tabs -->
+        <section x-show="activeTopic !== 'getting-started' && activeTopic !== 'architecture'" class="space-y-6" style="display: none;">
+          <h2 class="text-3xl font-extrabold text-white capitalize tracking-tight" x-text="activeTopic.replace('-', ' ')"></h2>
+          <p class="text-sm sm:text-base text-slate-400">
+            Comprehensive reference manual for this module. Detailed code specifications, JSON payloads, and automated reconciliation policies.
+          </p>
+          <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-xs text-slate-400 font-mono">
+            Sample documentation endpoint payload loaded for interactive inspection.
+          </div>
+        </section>
+
+        <!-- Article Feedback Widget -->
+        <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <span class="text-slate-400">Was this architectural documentation helpful?</span>
+          
+          <div class="flex items-center gap-2">
+            <button 
+              type="button" 
+              @click="giveFeedback('yes')"
+              class="px-3.5 py-2 rounded-xl border text-xs font-semibold transition"
+              :class="feedbackGiven === 'yes' ? 'bg-teal-500/20 text-teal-300 border-teal-500/30' : 'bg-slate-900 text-slate-300 border-slate-800 hover:bg-slate-800'">
+              👍 Yes, resolved
+            </button>
+            <button 
+              type="button" 
+              @click="giveFeedback('no')"
+              class="px-3.5 py-2 rounded-xl border text-xs font-semibold transition"
+              :class="feedbackGiven === 'no' ? 'bg-rose-500/20 text-rose-300 border-rose-500/30' : 'bg-slate-900 text-slate-300 border-slate-800 hover:bg-slate-800'">
+              👎 Needs more detail
+            </button>
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+
+    <!-- Trust Strip -->
+    @include('partials.trust-strip')
+
+  </main>
+
+  @include('partials.footer')
+  @include('partials.cookie-banner')
+
+  <script type="module" src="/src/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!-- High-Impact Futuristic Conversion Banner -->
+<section class="py-20 relative z-20 overflow-hidden" aria-labelledby="cta-band-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="p-10 sm:p-16 rounded-[2.5rem] text-center text-white bg-gradient-to-br from-[#0b1120] via-[#082f2c] to-[#04201e] border border-teal-500/40 shadow-[0_0_80px_rgba(15,118,110,0.3)] relative overflow-hidden">
+      
+      <!-- Ambient Glow Spotlights -->
+      <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-teal-500/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-20 -top-20 w-96 h-96 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none"></div>
+
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/20 border border-teal-500/40 text-teal-300 text-xs font-semibold mb-6">
+        <span>⚡ 14-DAY RISK-FREE EVALUATION</span>
+      </div>
+
+      <h2 id="cta-band-heading" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4">
+        Ready to Eliminate Your <br class="hidden sm:inline">
+        <span class="bg-gradient-to-r from-teal-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+          Multi-SaaS Disconnect?
+        </span>
+      </h2>
+      
+      <p class="text-sm sm:text-base text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+        Deploy a full-capacity multi-tenant sandbox with ERP, CRM, HRMS, and Billing in 60 seconds. Zero credit card needed.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <a href="/register.html" class="rioiz-btn-primary text-sm px-8 py-4 shadow-xl shadow-teal-500/40">
+          Deploy Free Sandbox Now &rarr;
+        </a>
+        <a href="/contact.html" class="rioiz-btn-ghost text-sm px-8 py-4 text-white">
+          Book Architecture Walkthrough
+        </a>
+      </div>
+
+      <!-- Newsletter Form on CTA Band (Alpine fakeForm) -->
+      <form x-data="fakeForm" @submit.prevent="submit($event)" class="flex flex-wrap justify-center gap-3 items-center max-w-md mx-auto">
+        <template x-if="state !== 'success'">
+          <div class="flex flex-wrap sm:flex-nowrap gap-2 items-center w-full">
+            <label class="sr-only" for="subscribe-email-footer">Email address</label>
+            <input 
+              type="email" 
+              id="subscribe-email-footer" 
+              required 
+              placeholder="Enter corporate email for updates..." 
+              class="border border-slate-700 bg-slate-900/90 text-white rounded-xl h-12 w-full px-4 text-xs placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <button 
+              type="submit" 
+              class="rioiz-btn-primary h-12 px-5 rounded-xl font-bold text-xs whitespace-nowrap w-full sm:w-auto shrink-0"
+              :disabled="state === 'submitting'">
+              <span x-show="state === 'idle'">Subscribe</span>
+              <span x-show="state === 'submitting'">...</span>
+            </button>
+          </div>
+        </template>
+        <template x-if="state === 'success'">
+          <div class="p-3 bg-teal-500/20 border border-teal-500/40 rounded-xl px-6 text-xs text-teal-300 font-medium">
+            ✓ Subscribed! You will receive the monthly Enterprise Dispatch.
+          </div>
+        </template>
+      </form>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+<!-- Newsletter Subscription Form Partial (Rioiz Dark Luxury Theme) -->
+<div x-data="fakeForm" class="p-8 sm:p-12 rounded-3xl glass-panel-interactive border border-slate-800/80 shadow-2xl relative overflow-hidden">
+  
+  <div class="max-w-xl mx-auto text-center">
+    <div class="w-12 h-12 mx-auto rounded-2xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-300 mb-4 shadow-lg shadow-teal-500/20">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+    </div>
+    
+    <h3 class="font-extrabold text-2xl sm:text-3xl text-white tracking-tight">The Modern Enterprise Dispatch</h3>
+    <p class="text-xs sm:text-sm text-slate-400 mt-2 mb-8">
+      Bi-weekly architectural breakdowns on ERP consolidation, real-time ledgers, and revenue ops engineering. No marketing fluff.
+    </p>
+
+    <!-- Interactive Form -->
+    <form @submit.prevent="submit($event)" class="relative">
+      
+      <!-- Idle / Submitting State -->
+      <div x-show="state !== 'success'" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <label for="newsletter-email" class="sr-only">Corporate Email Address</label>
+        <input 
+          id="newsletter-email"
+          type="email" 
+          required 
+          placeholder="colleague@company.com" 
+          class="flex-1 px-4 py-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-400 transition shadow-inner"
+          :disabled="state === 'submitting'">
+        
+        <button 
+          type="submit" 
+          class="rioiz-btn-primary text-xs py-3.5 px-6 disabled:opacity-50 flex items-center justify-center gap-2 whitespace-nowrap"
+          :disabled="state === 'submitting'">
+          <template x-if="state === 'idle'">
+            <span>Subscribe</span>
+          </template>
+          <template x-if="state === 'submitting'">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+              <span>Joining...</span>
+            </span>
+          </template>
+        </button>
+      </div>
+
+      <!-- Success State -->
+      <div 
+        x-show="state === 'success'" 
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs flex items-center justify-center gap-2 max-w-md mx-auto"
+        style="display: none;">
+        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="font-medium">You're subscribed! Expect the first dispatch this Thursday.</span>
+      </div>
+
+      <p class="text-[11px] text-slate-500 mt-3 font-mono">
+        Zero spam guarantee • 1-click unsubscribe anytime
+      </p>
+    </form>
+
+  </div>
+
+</div>
